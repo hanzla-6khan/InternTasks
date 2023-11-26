@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="path/to/font-awesome/css/font-awesome.min.css"
+    />
+
+    <title>task one</title>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <ul>
+          <li><a href="#login">Home</a></li>
+          <li><a href="#socialmediacards">MediaCards</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="logincontainer" id="login">
+      <div class="loginform">
+        <form action="">
+          <span class="logintitle">Login</span>
+          <i class="fa fa-envelope-square" id="envalop" aria-hidden="true"></i>
+          <input type="email" id="input-box" placeholder="EMAIL" />
+
+          <i class="fa fa-lock" aria-hidden="true"></i>
+          <input
+            type="password"
+            id="input-box"
+            placeholder="Password"
+            maxlength="8"
+            minlength="4"
+          />
+
+          <div class="checkbox-container">
+            <input type="checkbox" id="myCheckbox" />
+            <label for="myCheckbox">Remember me</label>
+          </div>
+
+          <!-- <input type="date" max="2024-12-01" min="2019-12-01" /> -->
+
+          <div class="container-login">
+            <button type="submit" class="loginbutton">Login</button>
+          </div>
+        </form>
+
+        <div class="text-center">
+          <span class="txt1"> Or login with </span>
+        </div>
+        <div class="buttons">
+          <a href="#" class="btn-face m-b-10">
+            <i class="fa fa-facebook-official"></i>
+            Facebook
+          </a>
+          <a href="#" class="btn-google m-b-10">
+            <img src="assets/gogle.png" alt="GOOGLE" />
+            Google
+          </a>
+        </div>
+
+        <div class="text-center w-full p-t-115">
+          <span class="txt1"> Not a member? </span>
+          <a class="txt1 bo1 hov1" href="#"> Sign up now </a>
+        </div>
+      </div>
+    </div>
+
+    <section class="content">
+      <article>
+        <h2>What are Semantic Elements?</h2>
+        <p>
+          A semantic element clearly describes its meaning to both the browser
+          and the developer.
+          <br />
+          Examples of non-semantic elements <br />
+          <u>div</u> and <u>span</u> - Tells nothing about its content.<br />
+          Examples of semantic elements: <u>form</u>, <u>table </u>, and
+          <u>article </u> - Clearly defines its content.
+        </p>
+      </article>
+      <aside>
+        <h2>Aside Section</h2>
+        <img src="assets/sementicelement.JPG" alt="" />
+      </aside>
+    </section>
+    <h1>social media cards</h1>
+    <div class="container" id="socialmediacards">
+      <div class="myCard">
+        <div class="innerCard">
+          <div class="frontSide">
+            <p class="title">SOCIAL MEDIA</p>
+            <p>Explore</p>
+          </div>
+          <div class="backSide">
+            <p class="title">CARDS</p>
+            <p>Leave Me</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2023 InternTask.com. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
