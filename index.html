@@ -29,19 +29,38 @@
 
     <div class="logincontainer" id="login">
       <div class="loginform">
-        <form action="">
+        <form action="" id="myForm">
           <span class="logintitle">Login</span>
-          <i class="fa fa-envelope-square" id="envalop" aria-hidden="true"></i>
-          <input type="email" id="input-box" placeholder="EMAIL" />
 
-          <i class="fa fa-lock" aria-hidden="true"></i>
-          <input
-            type="password"
-            id="input-box"
-            placeholder="Password"
-            maxlength="8"
-            minlength="4"
-          />
+          <div class="form-control">
+            <input
+              type="email"
+              class="email"
+              id="input-box"
+              placeholder="EMAIL"
+            />
+            <div class="icon">
+              <i class="fa fa-check-circle" id="ex" aria-hidden="true"></i>
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+            </div>
+
+            <small> </small>
+          </div>
+
+          <div class="form-control">
+            <input
+              type="password"
+              class="password"
+              id="input-box"
+              placeholder="Password"
+              maxlength="8"
+              minlength="4"
+            />
+            <i class="fa fa-check-circle" aria-hidden="true"></i>
+            <i class="fa fa-exclamation" aria-hidden="true"></i>
+
+            <small class="pass"></small>
+          </div>
 
           <div class="checkbox-container">
             <input type="checkbox" id="myCheckbox" />
@@ -113,5 +132,58 @@
     <footer>
       <p>&copy; 2023 InternTask.com. All rights reserved.</p>
     </footer>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("myForm");
+
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          checkInputs();
+        });
+
+        function checkInputs() {
+          const emails = document.querySelectorAll(".email");
+          const passwords = document.querySelectorAll(".password");
+
+          emails.forEach(function (email) {
+            const emailValue = email.value.trim();
+            if (emailValue === "") {
+              setErrorFor(email, "Email cannot be blank");
+            } else if (!isEmail(emailValue)) {
+              setErrorFor(email, "Not a valid email");
+            } else {
+              setSuccessFor(email);
+            }
+          });
+
+          passwords.forEach(function (password) {
+            const passwordValue = password.value.trim();
+            if (passwordValue === "") {
+              setErrorFor(password, "Password cannot be blank");
+            } else {
+              setSuccessFor(password);
+            }
+          });
+        }
+
+        function setErrorFor(input, message) {
+          const formControl = input.parentElement;
+          const small = formControl.querySelector("small");
+          formControl.className = "form-control error";
+          small.innerText = message;
+        }
+
+        function setSuccessFor(input) {
+          const formControl = input.parentElement;
+          formControl.className = "form-control success";
+        }
+
+        function isEmail(email) {
+          return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+            email
+          );
+        }
+      });
+    </script>
   </body>
 </html>
