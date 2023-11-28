@@ -12,21 +12,16 @@
       rel="stylesheet"
       href="path/to/font-awesome/css/font-awesome.min.css"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;500;900&display=swap"
+      rel="stylesheet"
+    />
 
     <title>task one</title>
   </head>
   <body>
-    <header>
-      <nav class="navbar">
-        <ul>
-          <li><a href="#login">Home</a></li>
-          <li><a href="#socialmediacards">MediaCards</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
-
     <div class="logincontainer" id="login">
       <div class="loginform">
         <form action="" id="myForm">
@@ -35,31 +30,29 @@
           <div class="form-control">
             <input
               type="email"
-              class="email"
-              id="input-box"
+              class="input-box"
+              id="emailInput"
               placeholder="EMAIL"
             />
-            <div class="icon">
-              <i class="fa fa-check-circle" id="ex" aria-hidden="true"></i>
-              <i class="fa fa-envelope" aria-hidden="true"></i>
-            </div>
-
-            <small> </small>
+            <span class="focus-input"></span>
+            <i></i>
+            <small class="error-message">Valid email is required</small>
+            <i class="fa fa-envelope" aria-hidden="true"></i>
           </div>
-
           <div class="form-control">
             <input
               type="password"
-              class="password"
-              id="input-box"
+              class="input-box"
+              id="passwordInput"
               placeholder="Password"
               maxlength="8"
               minlength="4"
             />
-            <i class="fa fa-check-circle" aria-hidden="true"></i>
-            <i class="fa fa-exclamation" aria-hidden="true"></i>
+            <i class="message-icon"></i>
 
-            <small class="pass"></small>
+            <span class="focus-input"></span>
+            <small class="error-message">password is required </small>
+            <i class="fa fa-lock" aria-hidden="true"></i>
           </div>
 
           <div class="checkbox-container">
@@ -70,7 +63,9 @@
           <!-- <input type="date" max="2024-12-01" min="2019-12-01" /> -->
 
           <div class="container-login">
-            <button type="submit" class="loginbutton">Login</button>
+            <button type="submit" class="loginbutton" onclick="checkInputs()">
+              Login
+            </button>
           </div>
         </form>
 
@@ -88,50 +83,12 @@
           </a>
         </div>
 
-        <div class="text-center w-full p-t-115">
+        <div class="textl">
           <span class="txt1"> Not a member? </span>
           <a class="txt1 bo1 hov1" href="#"> Sign up now </a>
         </div>
       </div>
     </div>
-
-    <section class="content">
-      <article>
-        <h2>What are Semantic Elements?</h2>
-        <p>
-          A semantic element clearly describes its meaning to both the browser
-          and the developer.
-          <br />
-          Examples of non-semantic elements <br />
-          <u>div</u> and <u>span</u> - Tells nothing about its content.<br />
-          Examples of semantic elements: <u>form</u>, <u>table </u>, and
-          <u>article </u> - Clearly defines its content.
-        </p>
-      </article>
-      <aside>
-        <h2>Aside Section</h2>
-        <img src="assets/sementicelement.JPG" alt="" />
-      </aside>
-    </section>
-    <h1>social media cards</h1>
-    <div class="container" id="socialmediacards">
-      <div class="myCard">
-        <div class="innerCard">
-          <div class="frontSide">
-            <p class="title">SOCIAL MEDIA</p>
-            <p>Explore</p>
-          </div>
-          <div class="backSide">
-            <p class="title">CARDS</p>
-            <p>Leave Me</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <footer>
-      <p>&copy; 2023 InternTask.com. All rights reserved.</p>
-    </footer>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const form = document.getElementById("myForm");
@@ -142,46 +99,38 @@
         });
 
         function checkInputs() {
-          const emails = document.querySelectorAll(".email");
-          const passwords = document.querySelectorAll(".password");
+          const emailInput = document.getElementById("emailInput");
+          const passwordInput = document.getElementById("passwordInput");
 
-          emails.forEach(function (email) {
-            const emailValue = email.value.trim();
-            if (emailValue === "") {
-              setErrorFor(email, "Email cannot be blank");
-            } else if (!isEmail(emailValue)) {
-              setErrorFor(email, "Not a valid email");
-            } else {
-              setSuccessFor(email);
-            }
-          });
-
-          passwords.forEach(function (password) {
-            const passwordValue = password.value.trim();
-            if (passwordValue === "") {
-              setErrorFor(password, "Password cannot be blank");
-            } else {
-              setSuccessFor(password);
-            }
-          });
+          checkInput(emailInput, "Valid email is required");
+          checkInput(passwordInput, "Password is required");
         }
 
-        function setErrorFor(input, message) {
+        function checkInput(input, message) {
+          const inputValue = input.value.trim();
           const formControl = input.parentElement;
+
+          if (inputValue === "") {
+            setErrorFor(formControl, message);
+          } else {
+            setSuccessFor(formControl);
+          }
+        }
+
+        function setErrorFor(formControl, message) {
           const small = formControl.querySelector("small");
+          const icon = formControl.querySelector("i");
+
           formControl.className = "form-control error";
           small.innerText = message;
+          icon.className = "fa fa-exclamation";
         }
 
-        function setSuccessFor(input) {
-          const formControl = input.parentElement;
+        function setSuccessFor(formControl) {
+          const icon = formControl.querySelector("i");
+
           formControl.className = "form-control success";
-        }
-
-        function isEmail(email) {
-          return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
-            email
-          );
+          icon.className = "fa fa-check";
         }
       });
     </script>
