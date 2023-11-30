@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>loginForm-2</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="login.css" />
+  </head>
+  <body>
+    <div class="background-container">
+      <div class="login-container">
+        <div class="login-title">Login to Continue</div>
+        <div class="input-container">
+          <input type="text" id="fname" name="fname" placeholder="fname" />
+        </div>
+
+        <div class="input-container">
+          <input
+            type="date"
+            id="fname"
+            name="fname"
+            max="2024-12-01"
+            min="2019-12-01"
+            placeholder="Date of Birth"
+          />
+        </div>
+
+        <div class="input-container">
+          <input type="datetime-local" id="birthdaytime" name="birthdaytime" />
+        </div>
+
+        <div class="input-container">
+          <input type="email" placeholder="Email" id="email" />
+        </div>
+
+        <div class="input-container">
+          <input type="password" placeholder="Password" id="password" />
+        </div>
+        <div class="input-container">
+          <input type="file" name="file" id="file" />
+        </div>
+        <div class="input-container">
+          <input type="hidden" name="hidden" id="" value="03245" />
+        </div>
+
+        <div class="input-container">
+          <input type="search" name="search" placeholder="search" id="" />
+        </div>
+        <div class="input-container">
+          <label for="expiry date">Expiry Date</label>
+          <input
+            type="month"
+            id="expiryDate"
+            name="expiryDate"
+            min="2023-01"
+            max="2030-12"
+          />
+        </div>
+        <div class="input-container">
+          <input type="week" name="" id="" />
+        </div>
+        <div class="input-container">
+          <input type="url" placeholder="url" name="" id="" />
+        </div>
+
+        <div class="checkbox-container">
+          <label> <input type="checkbox" /> Remember me </label>
+          <a href="#">Forgot Password</a>
+        </div>
+
+        <button onclick="alert('Are you sure you want to continue?')">
+          <img
+            src="./assets/button.jpg"
+            alt="Submit the form"
+            height="64"
+            width="64"
+          />
+        </button>
+
+        <div class="social-icons">
+          <i class="fa fa-facebook-official" aria-hidden="true"></i>
+          <i class="fa fa-twitter"></i>
+        </div>
+
+        <div class="checkbox">
+          <input type="checkbox" name="Dogs" value="Dogs" />
+          <label for="">I like Dogs </label>
+          <input type="checkbox" name="Cats" value="Cats" />
+          <label for="">I like Cats</label>
+        </div>
+
+        <div class="radio-button">
+          <input type="radio" name="namesame" value="light" />
+          <label for="light">Light</label>
+
+          <input type="radio" id="dark" name="namesame" value="Dark" />
+          <label for="dark">Dark</label>
+
+          <div class="reset">
+            <input type="reset" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
